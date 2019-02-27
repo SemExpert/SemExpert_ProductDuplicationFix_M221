@@ -2,13 +2,8 @@
 
 namespace SemExpert\ProductDuplicationFixM221\Model\Category\Link;
 
-use Zend\Log\Writer\Stream;
-use Zend\Log\Logger;
-
 class SaveHandler extends \Magento\Catalog\Model\Category\Link\SaveHandler
 {
-    protected $logger;
-
     private $productCategoryLink;
     private $hydratorPool;
 
@@ -20,11 +15,6 @@ class SaveHandler extends \Magento\Catalog\Model\Category\Link\SaveHandler
 
         $this->hydratorPool = $hydratorPool;
         $this->productCategoryLink = $productCategoryLink;
-
-        $writer = new Stream(BP . '/var/log/fixes.log');
-        $this->logger = new Logger();
-        $this->logger->addWriter($writer);
-        $this->logger->debug(__METHOD__ . ' - here');
     }
 
     public function execute($entity, $arguments = [])
@@ -89,8 +79,6 @@ class SaveHandler extends \Magento\Catalog\Model\Category\Link\SaveHandler
      */
     private function mergeCategoryLinksCustom($newCategoryPositions, $oldCategoryPositions)
     {
-        $this->logger->debug(__METHOD__ . ' - here');
-
         $result = [];
         if (empty($newCategoryPositions)) {
             return $result;
