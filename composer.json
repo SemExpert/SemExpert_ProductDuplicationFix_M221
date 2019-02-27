@@ -1,0 +1,28 @@
+{
+  "name": "semexpert/module-product-duplication-fix-m221",
+  "description": "Patch for Magento 2.2.1 to fix Product Duplication error issue.",
+  "minimum-stability": "dev",
+  "version": "1.0.0",
+  "require": {
+    "php": "~7.0.0|~7.1.0",
+    "magento/framework": "~101.0"
+  },
+  "type": "magento2-module",
+  "license": [
+    "MIT"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "SemExpert\\ProductDuplicationFixM221\\": ""
+    }
+  },
+  "repositories": [
+    {
+         "type": "composer",
+         "url": "https://repo.magento.com/"
+    }
+  ]
+}
